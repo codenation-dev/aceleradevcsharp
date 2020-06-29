@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using CodenationRestaurante.Dados;
+using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Modelo;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,59 +9,44 @@ namespace CodenationRestaurante.Api.Controllers
     [ApiController]
     public class PratosIngredientesController : ControllerBase
     {
+        private PratosIngredientesRepositorio _repo;
+
+        public PratosIngredientesController()
+        {
+            _repo = new PratosIngredientesRepositorio();
+        }
+
         [HttpGet]
         public IEnumerable<PratosIngredientes> Get()
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.PratosIngredientes.ToList();
-            }
+            return _repo.RetornarTodos();
         }
 
         [HttpGet("{id}")]
         public PratosIngredientes Get(int id)
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.PratosIngredientes.FirstOrDefault(x => x.Id == id);
-            }
+            return _repo.BuscarPorId(id);
         }
 
         [HttpPost]
         public IEnumerable<PratosIngredientes> Post([FromBody] PratosIngredientes pratosIngredientes)
         {
-            using (var contexto = new Contexto())
-            {
-                contexto.PratosIngredientes.Add(pratosIngredientes);
-                contexto.SaveChanges();
-
-                return contexto.PratosIngredientes.ToList();
-            }
+            _repo.Incluir(pratosIngredientes);
+            return _repo.RetornarTodos();
         }
 
         [HttpPut]
         public IEnumerable<PratosIngredientes> Put([FromBody] PratosIngredientes pratosIngredientes)
         {
-            using (var contexto = new Contexto())
-            {
-                contexto.PratosIngredientes.Update(pratosIngredientes);
-                contexto.SaveChanges();
-
-                return contexto.PratosIngredientes.ToList();
-            }
+            _repo.Alterar(pratosIngredientes);
+            return _repo.RetornarTodos();
         }
 
         [HttpDelete("{id}")]
         public IEnumerable<PratosIngredientes> Delete(int id)
         {
-            using (var contexto = new Contexto())
-            {
-                var entity = contexto.PratosIngredientes.FirstOrDefault(x => x.Id == id);
-                contexto.PratosIngredientes.Remove(entity);
-                contexto.SaveChanges();
-
-                return contexto.PratosIngredientes.ToList();
-            }
+            _repo.Excluir(id);
+            return _repo.RetornarTodos();
         }
     }
 }

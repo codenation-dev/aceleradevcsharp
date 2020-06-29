@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CodenationRestaurante.Dados;
+﻿using System.Collections.Generic;
+using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Modelo;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodenationRestaurante.Api.Controllers
@@ -13,59 +9,44 @@ namespace CodenationRestaurante.Api.Controllers
     [ApiController]
     public class TipoPratoController : ControllerBase
     {
+        private TipoPratoRepositorio _repo;
+
+        public TipoPratoController()
+        {
+            _repo = new TipoPratoRepositorio();
+        }
+
         [HttpGet]
         public IEnumerable<TipoPrato> Get()
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.TipoPrato.ToList();
-            }
+            return _repo.RetornarTodos();
         }
 
         [HttpGet("{id}")]
         public TipoPrato Get(int id)
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.TipoPrato.FirstOrDefault(x => x.Id == id);
-            }
+            return _repo.BuscarPorId(id);
         }
 
         [HttpPost]
         public IEnumerable<TipoPrato> Post([FromBody] TipoPrato tipoPrato)
         {
-            using (var contexto = new Contexto())
-            {
-                contexto.TipoPrato.Add(tipoPrato);
-                contexto.SaveChanges();
-
-                return contexto.TipoPrato.ToList();
-            }
+            _repo.Incluir(tipoPrato);
+            return _repo.RetornarTodos();
         }
 
         [HttpPut]
         public IEnumerable<TipoPrato> Put([FromBody] TipoPrato tipoPrato)
         {
-            using (var contexto = new Contexto())
-            {
-                contexto.TipoPrato.Update(tipoPrato);
-                contexto.SaveChanges();
-
-                return contexto.TipoPrato.ToList();
-            }
+            _repo.Alterar(tipoPrato);
+            return _repo.RetornarTodos();
         }
 
         [HttpDelete("{id}")]
         public IEnumerable<TipoPrato> Delete(int id)
         {
-            using (var contexto = new Contexto())
-            {
-                var entity = contexto.TipoPrato.FirstOrDefault(x => x.Id == id);
-                contexto.TipoPrato.Remove(entity);
-                contexto.SaveChanges();
-
-                return contexto.TipoPrato.ToList();
-            }
+            _repo.Excluir(id);
+            return _repo.RetornarTodos();
         }
     }
 }
