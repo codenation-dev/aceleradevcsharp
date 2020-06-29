@@ -14,10 +14,10 @@ namespace CodenationRestaurante.Dados
         public DbSet<PratosIngredientes> PratosIngredientes { get; set; }
         public DbSet<AgendaCardapio> AgendaCardapio { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public Contexto(DbContextOptions<Contexto> options)
+              : base(options)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-ID73C28;Database=CodenationRestaurante;Trusted_Connection=True;");
-            base.OnConfiguring(optionsBuilder);
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,10 +1,9 @@
-﻿using System;
+﻿using CodenationRestaurante.Dominio.Repositorio;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CodenationRestaurante.Dominio.Modelo
 {
-    public class Prato
+    public class Prato : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }        

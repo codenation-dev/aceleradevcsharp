@@ -54,6 +54,10 @@ C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\CodenationRestaurante.Dados.dll
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\CodenationRestaurante.Dados.pdb
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\obj\Debug\netcoreapp3.1\CodenationRestaurante.Api.csproj.CoreCompileInputs.cache
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\obj\Debug\netcoreapp3.1\CodenationRestaurante.Api.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Api\bin\Debug\netcoreapp3.1\libman.json

@@ -1,53 +1,26 @@
 ﻿using CodenationRestaurante.Dominio.Modelo;
+using CodenationRestaurante.Dominio.Repositorio;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CodenationRestaurante.Dados.Repositorio
 {
-    public class PratosIngredientesRepositorio
+    public class PratosIngredientesRepositorio : RepositorioBase<PratosIngredientes>, IPratosIngredientesRepositorio
     {
-        public List<PratosIngredientes> RetornarTodos()
+        public PratosIngredientesRepositorio(Contexto contexto) 
+            : base(contexto)
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.PratosIngredientes.ToList();
-            }
+
         }
 
-        public PratosIngredientes BuscarPorId(int id)
+        public List<PratosIngredientes> SelecionarCompleto()
         {
-            using (var contexto = new Contexto())
-            {
-                return contexto.PratosIngredientes.FirstOrDefault(x => x.Id == id);
-            }
-        }
-
-        public void Incluir(PratosIngredientes pratosIngredientes)
-        {
-            using (var contexto = new Contexto())
-            {
-                contexto.PratosIngredientes.Add(pratosIngredientes);
-                contexto.SaveChanges();
-            }
-        }
-
-        public void Alterar(PratosIngredientes pratosIngredientes)
-        {
-            using (var contexto = new Contexto())
-            {
-                contexto.PratosIngredientes.Update(pratosIngredientes);
-                contexto.SaveChanges();
-            }
-        }
-
-        public void Excluir(int id)
-        {
-            using (var contexto = new Contexto())
-            {
-                var entity = contexto.PratosIngredientes.FirstOrDefault(x => x.Id == id);
-                contexto.PratosIngredientes.Remove(entity);
-                contexto.SaveChanges();
-            }
+            return _contexto
+                .PratosIngredientes
+                .Include(x => x.Ingrediente)
+                .Include(x => x.Prato)
+                .ToList();
         }
     }
 }

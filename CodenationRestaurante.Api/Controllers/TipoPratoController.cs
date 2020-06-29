@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Modelo;
+using CodenationRestaurante.Dominio.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodenationRestaurante.Api.Controllers
@@ -9,44 +9,44 @@ namespace CodenationRestaurante.Api.Controllers
     [ApiController]
     public class TipoPratoController : ControllerBase
     {
-        private TipoPratoRepositorio _repo;
+        private readonly ITipoPratoRepositorio _repo;
 
-        public TipoPratoController()
+        public TipoPratoController(ITipoPratoRepositorio repo)
         {
-            _repo = new TipoPratoRepositorio();
+            _repo = repo;
         }
 
         [HttpGet]
         public IEnumerable<TipoPrato> Get()
         {
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         [HttpGet("{id}")]
         public TipoPrato Get(int id)
         {
-            return _repo.BuscarPorId(id);
+            return _repo.SelecionarPorId(id);
         }
 
         [HttpPost]
         public IEnumerable<TipoPrato> Post([FromBody] TipoPrato tipoPrato)
         {
             _repo.Incluir(tipoPrato);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         [HttpPut]
         public IEnumerable<TipoPrato> Put([FromBody] TipoPrato tipoPrato)
         {
             _repo.Alterar(tipoPrato);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         [HttpDelete("{id}")]
         public IEnumerable<TipoPrato> Delete(int id)
         {
             _repo.Excluir(id);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
     }
 }

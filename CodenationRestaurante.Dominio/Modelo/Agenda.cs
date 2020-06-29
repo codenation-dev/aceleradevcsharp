@@ -1,9 +1,10 @@
-﻿using System;
+﻿using CodenationRestaurante.Dominio.Repositorio;
+using System;
 using System.Collections.Generic;
 
 namespace CodenationRestaurante.Dominio.Modelo
 {
-    public class Agenda
+    public class Agenda : IEntity
     {
         public int Id { get; set; }
         public DateTime DataInicio { get; set; }

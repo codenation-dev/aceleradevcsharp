@@ -1,6 +1,8 @@
-﻿namespace CodenationRestaurante.Dominio.Modelo
+﻿using CodenationRestaurante.Dominio.Repositorio;
+
+namespace CodenationRestaurante.Dominio.Modelo
 {
-    public class PratosIngredientes
+    public class PratosIngredientes : IEntity
     {
         public int IdPrato { get; set; }
         public Prato Prato { get; set; }

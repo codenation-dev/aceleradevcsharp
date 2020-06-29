@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Modelo;
+using CodenationRestaurante.Dominio.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodenationRestaurante.Api.Controllers
@@ -9,25 +9,25 @@ namespace CodenationRestaurante.Api.Controllers
     [ApiController]
     public class IngredienteController : ControllerBase
     {
-        private IngredienteRepositorio _repo;
+        private readonly IIngredienteRepositorio _repo;
 
-        public IngredienteController()
+        public IngredienteController(IIngredienteRepositorio repo)
         {
-            _repo = new IngredienteRepositorio();
+            _repo = repo;
         }
 
         // GET: api/<Ingrediente>
         [HttpGet]
         public IEnumerable<Ingrediente> Get()
         {
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         // GET api/<Ingrediente>/5
         [HttpGet("{id}")]
         public Ingrediente Get(int id)
         {
-            return _repo.BuscarPorId(id);
+            return _repo.SelecionarPorId(id);
         }
 
         // POST api/<Ingrediente>
@@ -35,7 +35,7 @@ namespace CodenationRestaurante.Api.Controllers
         public IEnumerable<Ingrediente> Post([FromBody] Ingrediente ingrediente)
         {
             _repo.Incluir(ingrediente);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         // PUT api/<Ingrediente>/5
@@ -43,7 +43,7 @@ namespace CodenationRestaurante.Api.Controllers
         public IEnumerable<Ingrediente> Put([FromBody] Ingrediente ingrediente)
         {
             _repo.Alterar(ingrediente);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
 
         // DELETE api/<Ingrediente>/5
@@ -51,7 +51,7 @@ namespace CodenationRestaurante.Api.Controllers
         public IEnumerable<Ingrediente> Delete(int id)
         {
             _repo.Excluir(id);
-            return _repo.RetornarTodos();
+            return _repo.SelecionarTodos();
         }
     }
 }
