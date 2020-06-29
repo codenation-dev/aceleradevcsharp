@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using CodenationRestaurante.Dominio.Modelo;
 using CodenationRestaurante.Dominio.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodenationRestaurante.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class IngredienteController : ControllerBase
