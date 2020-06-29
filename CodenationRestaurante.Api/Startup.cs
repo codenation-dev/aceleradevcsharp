@@ -1,19 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CodenationRestaurante.Dados;
 using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace CodenationRestaurante.Api
 {
@@ -44,6 +38,8 @@ namespace CodenationRestaurante.Api
 
             services.AddDbContext<Contexto>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("MinhaConexao")));
+
+            services.AddSwaggerGen(x => x.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "Restaurante da Thamy", Version = "v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +49,12 @@ namespace CodenationRestaurante.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "Api da Thamy");
+            });
 
             app.UseHttpsRedirection();
 
