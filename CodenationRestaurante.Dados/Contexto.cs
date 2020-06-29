@@ -1,10 +1,11 @@
 ﻿using CodenationRestaurante.Dados.Map;
 using CodenationRestaurante.Dominio.Modelo;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodenationRestaurante.Dados
 {
-    public class Contexto : DbContext
+    public class Contexto : IdentityDbContext
     {
         public DbSet<Cardapio> Cardapio { get; set; }
         public DbSet<Ingrediente> Ingrediente { get; set; }

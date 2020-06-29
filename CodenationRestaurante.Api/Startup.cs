@@ -3,6 +3,7 @@ using CodenationRestaurante.Dados.Repositorio;
 using CodenationRestaurante.Dominio.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,11 +36,15 @@ namespace CodenationRestaurante.Api
             services.AddScoped<IIngredienteRepositorio, IngredienteRepositorio>();
             services.AddScoped<IPratoRepositorio, PratoRepositorio>();
             services.AddScoped<IPratosIngredientesRepositorio, PratosIngredientesRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             services.AddDbContext<Contexto>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("MinhaConexao")));
 
             services.AddSwaggerGen(x => x.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "Restaurante da Thamy", Version = "v1" }));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+              .AddEntityFrameworkStores<Contexto>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

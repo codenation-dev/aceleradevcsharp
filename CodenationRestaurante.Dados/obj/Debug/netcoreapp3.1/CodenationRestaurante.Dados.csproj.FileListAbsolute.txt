@@ -11,5 +11,5 @@ C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dado
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dados.pdb
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\bin\Debug\netcoreapp3.1\CodenationRestaurante.Dados.runtimeconfig.json
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\bin\Debug\netcoreapp3.1\CodenationRestaurante.Dados.runtimeconfig.dev.json
-C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dados.csproj.CoreCompileInputs.cache
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dados.genruntimeconfig.cache
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dados\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dados.csproj.CoreCompileInputs.cache

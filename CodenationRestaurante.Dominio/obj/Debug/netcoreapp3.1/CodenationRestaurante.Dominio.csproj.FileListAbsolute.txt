@@ -4,6 +4,6 @@ C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Domi
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.csprojAssemblyReference.cache
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.AssemblyInfoInputs.cache
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.AssemblyInfo.cs
-C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.dll
 C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.pdb
+C:\Users\thami\Source\Repos\CodenationRestaurante.Api\CodenationRestaurante.Dominio\obj\Debug\netcoreapp3.1\CodenationRestaurante.Dominio.csproj.CoreCompileInputs.cache
